@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loïc Oberle</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
+    <meta name="viewport" content="width=device-width, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+    <div id="content">
+        <button id="languageChangeButton"><img id="flag" src="assets/gb.svg" alt=""></button>
+
+
+        <div id="screen1" class="fullscreen screens">
+            <button class="scrollNext"><img src="assets/angle-down.svg" alt=""></button>
+            <div id="introduction">
+                <p>{{used_language.introduction[0]}} <span class="emphasis">{{used_language.introduction[1]}}</span></p>
+                <p>{{used_language.introduction[2]}} <span class="emphasis">{{used_language.introduction[3]}}</span></p>
+            </div>
+            <div id="aboutMe">
+                {{used_language.about_me}}
+            </div>
+            <p id="scrollHint" class="floating">{{used_language.scrollHint}}</p>
+        </div>
+        <div id="screen2" class="fullscreen screens">
+            <button class="scrollPrevious"><img src="assets/angle-up.svg" alt=""></button>
+            <button class="scrollNext"><img src="assets/angle-down.svg" alt=""></button>
+            <h1 class="screenTitle">{{used_language.studiesTitle}}</h1>
+            <div :data-aos="[alternatingFadeIn(index)]" class="studiesCard"
+                v-for="(item, index) in used_language.studies" :key="index">
+                <img class="floatLeft studiesLogo" v-if="index%2==0" :src="['assets/'+item.logo]" alt="">
+                <div class="studiesDescArea">
+                    <h2 class="studiesCardTitle">{{item.title}}</h2>
+                    <p class="studiesCardPlace">{{item.place}}</p>
+                    <p class="studiesCardDescription">{{item.description}}</p>
+                </div>
+                <img class="floatRight studiesLogo" v-if="index%2==1" :src="['assets/'+item.logo]" alt="">
+            </div>
+
+        </div>
+        <div  id="screen3" class="fullscreen screens">
+            <button class="scrollPrevious"><img src="assets/angle-up.svg" alt=""></button>
+            <button class="scrollNext"><img src="assets/angle-down.svg" alt=""></button>
+            <h1 class="screenTitle">{{used_language.workTitle}}</h1>
+            <!-- Slider main container -->
+            <div data-aos="fade-up" class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <div v-for="(item, index) in used_language.work" class="swiper-slide" :key="index">
+                        {{item.title}}
+                    </div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+            </div>
+
+
+        </div>
+        <div data-aos="zoom-in" id="screen4" class="fullscreen screens">
+            <button class="scrollPrevious"><img src="assets/angle-up.svg" alt=""></button>
+            <p>Screen 4</p>
+
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

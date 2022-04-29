@@ -1,0 +1,236 @@
+html {
+    scroll-behavior: smooth;
+    caret-color: transparent;
+}
+@font-face {
+    font-family: "My font";
+    src: url("../assets/font/Loicoberlefont-Regular.ttf") format("truetype");
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    transition: background-image 1s ease-in-out;
+   
+}
+body{
+   /*  background-attachment: fixed; */
+}
+
+:root {
+    --screenNumber: 4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.emphasis {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #E1AD01;
+}
+
+.fullscreen {
+    width: 100vw;
+    min-height: calc(var(--vh, 1vh) * 100);
+}
+
+#content {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    height: calc(var(--screenNumber)* var(--vh, 1vh)*100);
+    flex-direction: column;
+    gap: 0px;
+
+
+}
+
+.screens {
+    position: relative;
+    text-align: center;
+}
+
+#introduction {
+    font-family: "My font","Special Elite";
+    height: 15vh;
+    width: 100vw;
+    font-size: 3em;
+    font-weight: bolder;
+    
+}
+
+#aboutMe{
+    text-align: center;
+    font-family: "My font","Special Elite";
+    height: 15vh;
+    width: 100vw;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#scrollHint {
+    position: absolute;
+    bottom: 10vh;
+    width: 40vw;
+    left: 30vw;
+    font-family: "Special Elite";
+}
+
+#languageChangeButton {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3vw;
+    height: auto;
+    aspect-ratio: 4/3;
+    background-color: transparent;
+    border: none;
+    min-width: 50px;
+    min-height: 25px;
+}
+
+#flag {
+    width: 100%;
+    height: 100%;
+}
+
+.scrollPrevious {
+    width: 5vw;
+    height: 2.5vh;
+    z-index: 11;
+    position: absolute;
+    bottom: 0;
+    right: 10vh;
+    background-color: transparent;
+    border: none;
+    filter: invert(49%) sepia(27%) saturate(0%) hue-rotate(156deg) brightness(98%) contrast(97%);
+    min-width: 50px;
+    min-height: 25px;
+}
+
+.scrollNext {
+    width: 5vw;
+    height: 2.5vh;
+    z-index: 11;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    filter: invert(49%) sepia(27%) saturate(0%) hue-rotate(156deg) brightness(98%) contrast(97%);
+    min-width: 50px;
+    min-height: 25px;
+}
+
+.scrollNext img {
+    width: 100%;
+    height: 100%;
+}
+
+.scrollPrevious img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.studiesCard {
+    outline: 1px black solid;
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: lightgray;
+}
+
+.studiesDescArea {
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .studiesLogo {
+        display: none;
+    }
+
+    .studiesCard {
+        font-size: small;
+    }
+
+    #introduction{
+        font-size: 1.5em;
+    }
+    #aboutMe{
+        font-size: 1em;
+    }
+}
+
+.screenTitle {
+    color: white;
+    font-family: "My font";
+    font-size: 4em;
+}
+
+#screen1 {
+    background-image:url("../assets/paper-wallpaper.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#screen2 {
+    
+    background-image:linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), url("../assets/parc.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#screen3 {
+    background-image:linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), url('../assets/wall.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+
+    65% {
+        transform: translate(0, 15px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
+}
